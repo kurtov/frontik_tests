@@ -15,7 +15,8 @@ class TestMicroHandler(unittest.TestCase):
         self.assertEqual(json['post']['POST'], 'post')
         self.assertEqual(json['post']['get']['GET'], 'get')
         self.assertEqual(json['preprocessor'], True)
-        self.assertEqual(json['delete'], None)
+        self.assertEqual(json['delete']['error'], True)
+        self.assertEqual(json['delete']['status_code'], 500)
 
     def test_fail_on_error(self):
         response = frontik_test_app.get_page('micro_handler?fail_on_error=true')

@@ -18,4 +18,4 @@ class Page(frontik.handler.PageHandler):
         def exception_cb(e):
             raise e
 
-        self.xml.executor.add_job(job, self.check_finished(success_cb), self.check_finished(exception_cb))
+        self.xml_producer.executor.add_job(job, self.check_finished(success_cb), self.check_finished(exception_cb))

@@ -1,6 +1,6 @@
-# coding: utf-8
+# coding=utf-8
 
-from frontik.handler import HTTPError
+from frontik.handler import HTTPError, JsonProducerMixin
 from frontik.micro_handler import MicroHandler
 
 
@@ -12,7 +12,7 @@ def get_page(handler, callback):
     callback()
 
 
-class Page(MicroHandler):
+class Page(MicroHandler, JsonProducerMixin):
     @MicroHandler.add_preprocessor(get_page)
     @MicroHandler.add_preprocessor(get_page)
     def get_page(self):
